@@ -1,103 +1,294 @@
+"use client"
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  type Info = "experience" | "education" | "projects";
+  const [selected, setSelected] = useState<Info>("experience");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const buttons = [
+    { label: "Experience", info: "experience" },
+    { label: "Education", info: "education" },
+    { label: "Projects", info: "projects" }
+  ];
+
+  const experience = [
+    {
+      role: "AI Research Assistant",
+      company: "Beth Isreal Deaconess Medical Center",
+      location: "Boston, MA",
+      date: "Jun 2025 - Present",
+      details: [
+        "Image segmentation on MRI brain scans for 3D model construction and TTField simulations",
+        "Data processing pipelines to streamline TTField simulation analysis"
+      ],
+      skills: [
+        "Computer Vision",
+        "AI/ML",
+        "SWE",
+        "Data Engineering",
+        "Data Visualization",
+      ],
+      technologies: [
+        ".NET",
+      ],
+    },
+    {
+      role: "AI Systems Engineering Intern",
+      company: "Takeda Pharmaceuticals",
+      location: "Cambridge, MA",
+      date: "Jun 2025 - Aug 2025",
+      details: [
+        "Agentic AI for automatic data onboarding into enterprise master data platform"
+      ],
+      skills: [
+        "AI/ML",
+        "SWE",
+        "Data Engineering",
+        "Databases",
+        "IT",
+        "Master Data Management",
+      ],
+      technologies: [
+        "Databricks",
+        "Apache Spark",
+        "LangChain",
+        "Pandas",
+      ]
+    },
+    {
+      role: "AI Research Assistant",
+      company: "University of Massachusetts Amherst",
+      location: "Amherst, MA",
+      date: "Sep 2024 - May 2025",
+      details: [
+        "Light detection pipeline for automatic photography-based electrical grid analysis",
+        "Hyperparameter tuning and unsupervised domain adaptation to improve performance in novel domain"
+      ],
+      skills: [
+        "Computer Vision",
+        "AI/ML",
+        "Data Analysis",
+      ],
+      technologies: [
+        "PyTorch",
+        "Scikit-learn",
+        "Numpy",
+        "Matplotlib",
+      ]
+    },
+    {
+      role: "Data Engineering Intern",
+      company: "Takeda Pharmaceuticals",
+      location: "Cambridge, MA",
+      date: "May 2024 - Aug 2024",
+      details: [
+        "Data ingestion and analysis for automatic data examination during application incident resolution",
+        "Application recovery after failure, including after Crowdstrike incident"
+      ],
+      skills: [
+        "SWE",
+        "Data Engineering",
+        "Data Analysis",
+        "Databases",
+        "IT",
+      ],
+      technologies: [
+        "AppOptics (formerly Librato)",
+        ".NET",
+      ],
+    }
+  ];
+  const education = [
+    {
+      school: "University of Massachusetts Amherst",
+      degrees: [
+        "BS, Computer Science",
+        "Minor, Business Administration",
+      ],
+      years: "Sep 2023 - May 2026"
+    }
+  ];
+  const projects = [
+    {
+      name: "Mallard | Fullstack Development",
+      link: "https://github.com/TheVikJ/project-mallard",
+      description: "A notifications-as-a-service platform for insurance company employees, policyholders, and claimants to handle claims and news.",
+      technologies: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Axios",
+        "Prisma ORM",
+        "Postman",
+        "Git",
+        "TypeScript",
+        "SQL",
+      ],
+    },
+    {
+      name: "Station-Seven | Game Development",
+      link: "https://github.com/EPham42747/Station-Seven",
+      description: "A civilization-building game on Mars where the goal is to construct a self-sustaining research lab.",
+      technologies: [
+        "Unity Game Engine",
+        "Git",
+        ".NET",
+      ],
+    },
+    {
+      name: "UMass-BITES | Fullstack Development",
+      link: "https://github.com/Ian-Mei/UMass-BITES",
+      description: "A nutrition tracking solution tailored for UMass students by scraping school dining data. HackUMass XII submission.",
+      technologies: [
+        "Next.js",
+        "React",
+        "Express.js",
+        "Tailwind CSS",
+        "Zod",
+        "Beautiful Soup",
+        "Git",
+        "TypeScript",
+        "NoSQL",
+      ],
+    },
+    {
+      name: "LockIn | ML, Computer Vision",
+      link: "https://github.com/D-SehKim/LockIn",
+      description: "A program using the webcam that detects when the user's attention leaves the screen in front of them. HackUMass XI submission.",
+      technologies: [
+        "Keras",
+        "OpenCV",
+        "Python",
+      ],
+    },
+  ];
+
+  return (
+    <>
+      {/* Landing section */}
+      <div className="min-h-screen flex justify-center items-center bg-gray-900">
+        <div className="w-2/3 md:w-fit h-1/2 flex flex-col lg:flex-row items-center gap-10">
+          <Image src="/pfp.png" alt="" width={300} height={300} className="rounded-md"/>
+          <div className="max-w-[450px] text-white text-center lg:text-left">
+            <h1>Hi, I&#39;m <span className="text-orange-200">Ethan</span>! &#x1F929;</h1>
+            <p>I&#39;m a CS major and business minor at UMass Amherst.</p>
+            <p>I&#39;ve been diving into SWE and AI/ML and have been applying my skills to research and internships in health and medicine.</p>
+            <p>Thank you for visiting my page! More about me below.</p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      {/* Info section */}
+      <div className="min-h-screen h-fit flex justify-center items-start bg-white">
+        <div className="mx-8 my-24 w-full flex flex-col md:flex-row md:justify-center">
+          <div className="md:mr-4 mb-8 md:mb-0 flex flex-row md:flex-col justify-center md:justify-start">
+            {
+              buttons.map((button, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSelected(button.info as Info)}
+                  className={`mr-0 px-8 py-2 text-gray-900 bg-gray-100 hover:bg-gray-200 duration-200 ${selected === button.info ? "bg-gray-300" : ""} font-(family-name:--font-outfit) font-medium text-left`}
+                >
+                  {button.label}
+                </button>
+              ))
+            }
+          </div>
+          <div className="md:ml-4 w-full md:max-w-[75vw] h-3/4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 auto-rows-fr">
+            {
+              (() =>
+                selected === "experience" ?
+                  experience.map((e, i) => 
+                    <div key={i} className="p-4 flex flex-col justify-between rounded-md bg-gray-100">
+                      <div>
+                        <h3>{e.role}</h3>
+                        <p className="text-sm font-bold">{e.company}</p>
+                        <p className="text-xs italic">{e.location}&nbsp;&nbsp;•&nbsp;&nbsp;{e.date}</p>
+
+                        <ul className="list-disc pl-3 text-sm">
+                          { e.details.map((d, i) => <li key={i}>{d}</li>) }
+                        </ul>
+                      </div>
+
+                      <div>
+                        <p className="text-xs font-bold mt-2 mb-1">Skills</p>
+                        <div className="flex flex-row gap-x-2 gap-y-1 flex-wrap">
+                          {
+                            e.skills.map((s, i) => 
+                              <div key={i} className="px-2 rounded-full bg-gray-300">
+                                <p className="text-xs">{s}</p>
+                              </div>
+                            )
+                          }
+                        </div>
+
+                        <p className="text-xs font-bold my-1">Technologies</p>
+                        <div className="flex flex-row gap-x-2 gap-y-1 flex-wrap">
+                          {
+                            e.technologies.map((t, i) => 
+                              <div key={i} className="px-2 rounded-full bg-gray-300">
+                                <p className="text-xs">{t}</p>
+                              </div>
+                            )
+                          }
+                        </div>
+                      </div>
+                    </div>
+                  ) :
+                
+                selected === "education" ? 
+                  education.map((e, i) => 
+                    <div key={i} className="p-4 rounded-md bg-gray-100">
+                      <h3>{e.school}</h3>
+                      <p className="text-xs italic">{e.years}</p>
+                      <ul className="list-disc pl-3 text-sm">
+                          { e.degrees.map((d, i) => <li key={i}>{d}</li>) }
+                        </ul>
+                    </div>
+                  ) :
+                
+                selected === "projects" ?
+                  projects.map((p, i) => 
+                    <div key={i} className="p-4 flex flex-col justify-between rounded-md bg-gray-100">
+                      <div>
+                        <h3>{p.name}</h3>
+                        <p className="text-sm">{p.description}</p>
+                        <a href={p.link} className="text-xs text-blue-600 underline">[link]</a>
+                      </div>
+
+                      <div>
+                        <p className="text-xs font-bold mt-2 mb-1">Technologies</p>
+                          <div className="flex flex-row gap-x-2 gap-y-1 flex-wrap">
+                            {
+                              p.technologies.map((t, i) => 
+                                <div key={i} className="px-2 rounded-full bg-gray-300">
+                                  <p className="text-xs">{t}</p>
+                                </div>
+                              )
+                            }
+                          </div>
+                      </div>
+                    </div>
+                  ) : <></>
+              )()
+            }
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Info */}
+      <footer className="flex flex-row justify-center items-center bg-gray-900 text-white">
+        <div className="mx-4 my-8 flex flex-row items-center">
+          <Image src="/email.png" alt="" width={24} height={24} />
+          <a href="mailto:ethancpham@gmail.com" className="px-2 hover:underline">Email</a>
+        </div>
+            
+        <div  className="mx-4 my-8 flex flex-row items-center">
+          <Image src="/linkedin.png" alt="" width={24} height={24} />
+          <a href="https://linkedin.com/in/ethancpham" className="px-2 hover:underline">LinkedIn</a>
+        </div>
       </footer>
-    </div>
+    </>
   );
 }
