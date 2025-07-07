@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
-import nextConfig from "../../next.config";
 
 export default function Home() {
   type Info = "experience" | "education" | "projects";
@@ -170,7 +169,7 @@ export default function Home() {
       {/* Landing section */}
       <div className="min-h-screen flex justify-center items-center bg-gray-900">
         <div className="w-2/3 md:w-fit h-1/2 flex flex-col lg:flex-row items-center gap-10">
-          <Image src={`${nextConfig.basePath}/pfp.png`} alt="" width={300} height={300} className="rounded-md"/>
+          <Image src={`/pfp.png`} alt="" width={300} height={300} className="rounded-md"/>
           <div className="max-w-[450px] text-white text-center lg:text-left">
             <h1>Hi, I&#39;m <span className="text-orange-200">Ethan</span>! &#x1F929;</h1>
             <p>I&#39;m a CS major and business minor at UMass Amherst.</p>
@@ -281,12 +280,12 @@ export default function Home() {
       {/* Contact Info */}
       <footer className="flex flex-row justify-center items-center bg-gray-900 text-white">
         <div className="mx-4 my-8 flex flex-row items-center">
-          <Image src={`${nextConfig.basePath}/email.png`} alt="" width={24} height={24} />
+          <Image src={`/email.png`} alt="" width={24} height={24} />
           <a href="mailto:ethancpham@gmail.com" className="px-2 hover:underline">Email</a>
         </div>
             
         <div  className="mx-4 my-8 flex flex-row items-center">
-          <Image src={`${nextConfig.basePath}/linkedin.png`} alt="" width={24} height={24} />
+          <Image src={`/linkedin.png`} alt="" width={24} height={24} />
           <a href="https://linkedin.com/in/ethancpham" className="px-2 hover:underline">LinkedIn</a>
         </div>
       </footer>
